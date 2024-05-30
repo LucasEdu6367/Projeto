@@ -43,7 +43,7 @@ class _TabsScreenState extends State<TabsScreen> {
                   ),
                 ),
                 const Tab(
-                  text: "JOGOS",
+                  text: "JOGO",
                   icon: Icon(
                     Icons.sports_esports,
                     color: Colors.red,
