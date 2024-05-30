@@ -27,7 +27,7 @@ class FirstTab extends StatelessWidget {
                 Image.asset("asset/playvault.jpeg"),
                 const SizedBox(height: 20),
                 const Text(
-                  "Tudo sobre o seu jogo favorito PacMan em um só lugar. Desfrute desta plataforma e se divirta no jogo",
+                  "Tudo sobre o seu jogo favorito Snakegame em um só lugar. Desfrute desta plataforma e se divirta no jogo",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
