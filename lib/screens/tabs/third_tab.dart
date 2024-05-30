@@ -39,9 +39,37 @@ class _ThirdTabState extends State<ThirdTab> {
       case 'como posso acessar a aba do jogo?':
         return 'Pode acessar na aba superior a esquerda.';
       case 'qual nome do jogo que tem em sua loja?':
-        return 'Temos o jogo do Pac-Man na aba a esquerda.';
+        return 'Temos o jogo da cobra na aba a esquerda.';
       case 'quais são os métodos de pagamento aceitos?':
         return 'Aceitamos PIX, cartão de débito e crédito.';
+      case 'o que acontece quando a cobra colide com a parede?':
+        return 'Quando a cobra colide com a parede, o jogo termina.';
+      case 'como faço para controlar a cobra?':
+        return 'Você pode controlar a cobra deslizando o dedo na tela na direção desejada.';
+      case 'quais são os objetivos do jogo?':
+        return 'O objetivo principal do jogo é fazer com que a cobra cresça o máximo possível, evitando colisões.';
+      case 'há alguma maneira de aumentar a velocidade da cobra?':
+        return 'Não, a velocidade da cobra é constante.';
+      case 'existe algum recurso de reiniciar o jogo?':
+        return 'Sim, você pode reiniciar o jogo tocando no botão de reinício na tela.';
+      case 'posso ajustar a dificuldade do jogo?':
+        return 'Não, a dificuldade do jogo é fixa.';
+      case 'o que acontece quando a cobra se enrosca em si mesma?':
+        return 'Quando a cobra se enrosca em si mesma, o jogo termina.';
+      case 'como são geradas as posições da comida?':
+        return 'As posições da comida são geradas aleatoriamente na tela.';
+      case 'há alguma forma de visualizar a pontuação durante o jogo?':
+        return 'Sim, a pontuação é exibida na tela durante o jogo.';
+      case 'qual é a cor da cobra?':
+        return 'A cor da cobra é azul.';
+      case 'é possível personalizar a aparência do jogo?':
+        return 'Não, a aparência do jogo é fixa.';
+      case 'existe alguma maneira de pausar o jogo durante uma partida?':
+        return 'Não, o jogo não pode ser pausado durante uma partida.';
+      case 'como posso começar a jogar?':
+        return 'Para começar a jogar, toque na tela para iniciar o jogo.';
+      case 'qual é a mecânica do jogo?':
+        return 'A mecânica do jogo consiste em controlar uma cobra para coletar alimentos e evitar colisões.';
       default:
         return '';
     }
@@ -118,39 +146,37 @@ class ChatMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment:
-          isUser ? MainAxisAlignment.start : MainAxisAlignment.end,
-      children: <Widget>[
-        Container(
-          margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 8.0),
-          child: Column(
-            crossAxisAlignment:
-                isUser ? CrossAxisAlignment.start : CrossAxisAlignment.end,
-            children: <Widget>[
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  if (isUser)
-                    CircleAvatar(
-                      backgroundImage: AssetImage('asset/fototeste2.png'),
-                    )
-                  else
-                    CircleAvatar(
-                      backgroundImage: AssetImage('asset/fototeste.png'),
-                    ),
-                  SizedBox(width: 8.0), // Espaço entre o avatar e o texto
-                  Text(name),
-                ],
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 5.0),
-                child: Text(text),
-              ),
-            ],
-          ),
+    return Align(
+      alignment: isUser ? Alignment.centerLeft : Alignment.centerRight,
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: <Widget>[
+                if (isUser)
+                  CircleAvatar(
+                    backgroundImage: AssetImage('asset/fototeste2.png'),
+                  ),
+                if (!isUser) Spacer(), // Espaço para alinhar com a direita
+                Text(name),
+                SizedBox(width: 8.0), // Espaço entre o avatar e o texto
+                if (isUser) Spacer(), // Espaço para alinhar com a esquerda
+                if (!isUser)
+                  CircleAvatar(
+                    backgroundImage: AssetImage('asset/fototeste.png'),
+                  ),
+              ],
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 5.0),
+              child: Text(text),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
